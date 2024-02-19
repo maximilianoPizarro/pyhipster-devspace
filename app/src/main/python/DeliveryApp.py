@@ -35,4 +35,4 @@ def create_app(flaskapp):
 
 if __name__ == '__main__':
     flask_app = create_app(app)
-    flask_app.run(debug=True, port=8080)
+    flask_app.run(host='0.0.0.0',debug=True, port=8080)
