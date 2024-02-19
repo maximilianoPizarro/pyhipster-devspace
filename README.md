@@ -1,1 +1,1 @@
-# pyjhipster-devspace
+# pyhipster-devspace
