@@ -4,14 +4,14 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
     <!--
-        Added the constraints for entity Producto.
+        Added the constraints for entity Cliente.
     -->
-    <changeSet id="20240219183729-2" author="jhipster">
+    <changeSet id="20240219205552-2" author="jhipster">
 
-        <addForeignKeyConstraint baseColumnNames="producto_categoria_id"
-                                 baseTableName="producto"
-                                 constraintName="fk_producto__producto_categoria_id"
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="cliente"
+                                 constraintName="fk_cliente__user_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="producto_categoria"/>
+                                 referencedTableName="jhi_user"/>
     </changeSet>
 </databaseChangeLog>

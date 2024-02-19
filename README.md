@@ -155,3 +155,9 @@ npm install
 ```
 npm run pyhipster
 ```
+
+
+```
+docker build -t delivery .
+docker compose -f app/src/main/docker/app.yml up
+```
