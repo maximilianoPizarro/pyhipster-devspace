@@ -7,11 +7,8 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - init: build
-    command: docker build -t delivery .
-  - name: run
+  - init: docker build -t delivery .
     command: docker compose -f app/src/main/docker/app.yml up
-    openMode: split-right
 ports:
     - name: pyhipster
       port: 9000
