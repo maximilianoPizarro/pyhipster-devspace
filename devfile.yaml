@@ -5,12 +5,12 @@ metadata:
 components:
   - name: tools
     container:  
-      image: 'quay.io/maximilianopizarro/py-devspace'
+      image: 'quay.io/maximilianopizarro/pyhipster-devspace'
       mountSources: true
       cpuLimit: '4'
       cpuRequest: '1'
       memoryLimit: '8G'
-      memoryRequest: '6G'
+      memoryRequest: '4G'
       volumeMounts:
         - name: venv
           path: /home/user/.venv
@@ -18,7 +18,7 @@ components:
           path: /home/user/.npm
       endpoints:
         - exposure: public
-          name: pyhipster
+          name: pyhipster-devspace
           protocol: https
           targetPort: 9000                    
   - name: venv
@@ -26,14 +26,4 @@ components:
       size: 1G
   - name: npm
     volume:
-      size: 512Mi            
-      
-commands:
-  - id: run-application
-    exec:
-      label: "Run application"
-      component: tools
-      workingDir: ${PROJECT_SOURCE}
-      commandLine: "python3 version"
-      group:
-        kind: run
+      size: 512Mi       
