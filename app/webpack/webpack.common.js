@@ -48,7 +48,7 @@ module.exports = async (env, options) => {
         proxy: [
           {
             context: ['/api', '/services', '/management', '/v3/api-docs', '/h2-console', '/auth'],
-            target: 'http://delivery.maximilianopizarro5-dev.svc.cluster.local:8080',
+            target: 'http://delivery:8080',
             secure: false,
           },
         ],
