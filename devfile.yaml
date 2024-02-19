@@ -1,0 +1,39 @@
+schemaVersion: 2.1.0
+metadata:
+  name: pyhipster-devspace
+  version: 2.1.0
+components:
+  - name: tools
+    container:  
+      image: 'quay.io/maximilianopizarro/pyhipster-devspace'
+      mountSources: true
+      cpuLimit: '4'
+      cpuRequest: '1'
+      memoryLimit: '8G'
+      memoryRequest: '4G'
+      volumeMounts:
+        - name: m2
+          path: /home/user/.m2
+        - name: config
+          path: /home/user/.config
+        - name: npm
+          path: /home/user/.npm
+      endpoints:
+        - exposure: public
+          name: pyhipster-devspace-backend
+          protocol: https
+          targetPort: 8080    
+        - exposure: public
+          name: pyhipster-devspace
+          protocol: https
+          targetPort: 9000                    
+  - name: m2
+    volume:
+      size: 512Mi          
+  - name: config
+    volume:
+      size: 512Mi
+  - name: npm
+    volume:
+      size: 512Mi            
+      
