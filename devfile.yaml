@@ -5,7 +5,7 @@ metadata:
 components:
   - name: tools
     container:  
-      image: 'quay.io/maximilianopizarro/py-devspace'
+      image: 'gitpod/workspace-python'
       mountSources: true
       cpuLimit: '4'
       cpuRequest: '1'
