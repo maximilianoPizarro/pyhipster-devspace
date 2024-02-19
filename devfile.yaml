@@ -5,7 +5,7 @@ metadata:
 components:
   - name: tools
     container:  
-      image: 'quay.io/devfile/universal-developer-image:ubi8-latest'
+      image: 'quay.io/maximilianopizarro/pyhipster-devspace'
       mountSources: true
       cpuLimit: '4'
       cpuRequest: '1'
