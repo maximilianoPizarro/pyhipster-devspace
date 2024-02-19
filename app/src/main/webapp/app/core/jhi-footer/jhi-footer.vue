@@ -1,0 +1,9 @@
+<template>
+  <div id="footer" class="footer">
+    <div class="d-flex justify-content-center">
+      <p>Made with <font-awesome-icon icon="heart" style="color: #d8165a" /> using PyHipster</p>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" src="./jhi-footer.component.ts"></script>

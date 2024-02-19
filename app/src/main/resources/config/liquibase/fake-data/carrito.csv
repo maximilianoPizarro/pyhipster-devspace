@@ -1,0 +1,11 @@
+id;fecha;status;metodo_de_pago;referencia;cliente_id
+1;2024-02-19T08:49:53;CANCELADO;CUPON;Usabilidad Hormigon compelling;1
+2;2024-02-19T18:05:12;PAGADO;CUPON;Buckinghamshire Card;2
+3;2024-02-19T10:40:30;COMPLETO;CUPON;Ergonómico Identidad Rua;2
+4;2024-02-18T22:43:14;CANCELADO;EFECTIVO;ejecutiva Granito;1
+5;2024-02-19T15:38:29;COMPLETO;CUPON;synthesize mano ábanico;2
+6;2024-02-19T00:54:00;COMPLETO;CUPON;Dinar Seguro Colegio;1
+7;2024-02-19T08:43:03;RECHAZADO;CUPON;front-end Azul BEAC;1
+8;2024-02-19T07:35:53;PENDIENTE;EFECTIVO;calculate;2
+9;2024-02-19T01:01:19;COMPLETO;CUPON;didactica primary;2
+10;2024-02-19T05:27:34;PAGADO;CUPON;Puente one-to-one impactful;1

@@ -1,0 +1,19 @@
+{
+  "home": {
+    "title": "¡Bienvenido,",
+    "subtitle": "Esta es su página de inicio",
+    "logged": {
+      "message": "Está conectado como \"{{username}}\"."
+    },
+    "question": "Si tiene preguntas sobre PyHipster:",
+    "link": {
+      "homepage": "Página de inicio de PyHipster",
+      "stackoverflow": "PyHipster en Stack Overflow",
+      "bugtracker": "PyHipster seguimiento de errores",
+      "chat": "Sala de chat pública de PyHipster",
+      "follow": "contacto @py_hipster en Twitter"
+    },
+    "like": "Si te gusta PyHipster, danos una estrella en",
+    "github": "GitHub"
+  }
+}
