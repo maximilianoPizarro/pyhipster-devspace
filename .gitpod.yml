@@ -8,9 +8,9 @@ image:
   file: .gitpod.Dockerfile
 tasks:
   - init: build
-    command: cd app && npm install && poetry install
+    command: docker build -t delivery .
   - name: run
-    command: docker compose up -f src/main/docker/postgresql.yml && npm run pyhipster
+    command: docker compose -f app/src/main/docker/app.yml up
     openMode: split-right
 ports:
     - name: pyhipster
