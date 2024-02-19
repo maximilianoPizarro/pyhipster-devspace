@@ -15,9 +15,25 @@
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-devspace.PNG?raw=true" width="684" title="Run On Openshift">
-
+</p>
+<p align="left">
     <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-devspace-app.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
+
+## Install JHipster DevSpace on OpenShift Dev Spaces
+
+1. Login with your Red Hat Account. https://console.redhat.com/openshift/sandbox. Select "OpenShift Dev Spaces".
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/redhat-console.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+2. Fork this repo and complete Git Repo URL parameter with your repo info.
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/master/screenshot/install-pyhipster-devspace.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
 
 
 ## Re-generate JHipster application from JDL File on Red Hat OpenShift Dev Spaces
