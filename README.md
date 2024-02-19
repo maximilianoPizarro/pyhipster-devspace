@@ -31,7 +31,7 @@
 2. Fork this repo and complete Git Repo URL parameter with your repo info.
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/master/screenshot/install-pyhipster-devspace.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/install-pyhipster-devspace.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 
