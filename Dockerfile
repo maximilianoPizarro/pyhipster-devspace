@@ -26,7 +26,7 @@ RUN make -j ${nproc} && make altinstall
 
 RUN rm /usr/bin/Python-3.10.8.tgz
 
-COPY .bashrc /home/jboss/.bashrc
+RUN wget https://raw.githubusercontent.com/maximilianoPizarro/pyhipster-devspace/main/.bashrc
 
 RUN source ~/.bashrc
 
