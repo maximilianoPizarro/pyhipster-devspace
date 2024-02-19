@@ -20,10 +20,6 @@ components:
           path: /home/user/.npm
       endpoints:
         - exposure: public
-          name: pyhipster-devspace-backend
-          protocol: https
-          targetPort: 8080    
-        - exposure: public
           name: pyhipster-devspace
           protocol: https
           targetPort: 9000                    
