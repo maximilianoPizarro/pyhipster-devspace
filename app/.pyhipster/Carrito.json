@@ -1,6 +1,6 @@
 {
   "applications": ["delivery"],
-  "changelogDate": "20240219181124",
+  "changelogDate": "20240219184029",
   "dto": "no",
   "embedded": false,
   "entityTableName": "carrito",

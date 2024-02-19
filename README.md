@@ -1,4 +1,23 @@
-# pyhipster-devspace
+# PyHipster v0.0.9 Monolithic application on Red Hat OpenShift Dev Spaces
+
+<p align="left">
+<img src="https://img.shields.io/badge/python-306998?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+<img src="https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">     
+<img src="https://img.shields.io/badge/nodejs-68a063?style=for-the-badge&logo=javascript&logoColor=white" alt="nodejs">
+<img src="https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D" alt="VueJS">
+<img src="https://img.shields.io/badge/redhat-CC0000?style=for-the-badge&logo=redhat&logoColor=white" alt="Redhat">
+<img src="https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white" alt="kubernetes">
+<img src="https://img.shields.io/badge/docker-0db7ed?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+<img src="https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white" alt="shell">
+<a href="https://www.linkedin.com/in/maximiliano-gregorio-pizarro-consultor-it"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin">     
+</p>
+
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-devspace.PNG?raw=true" width="684" title="Run On Openshift">
+
+    <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-devspace-app.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
 
 
 ## Re-generate JHipster application from JDL File on Red Hat OpenShift Dev Spaces
@@ -11,13 +30,13 @@ jhipster-devspace (master) $ rm -r app && mkdir app
 rm -r app && mkdir app
 ```
 
-1. Copy jhipster-devspace-model.jdl to app directory.
+2. Copy jhipster-devspace-model.jdl to app directory.
 
 ```
 cp template-jdl/pyhipster-devspace-model.jdl app
 ```
 
-2. Run 'pyhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started JDL Studio.
+3. Run 'pyhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started JDL Studio.
 
 jhipster-devspace (master) $cd app && jhipster jdl jhipster-devspace-model.jdl
 
@@ -73,10 +92,49 @@ Found the .pyhipster/Carrito.json configuration file, entity can be automaticall
 
 
 Found the .pyhipster/ProductoOrden.json configuration file, entity can be automatically generated!
+...more lines...
+
+If you find PyHipster useful consider sponsoring the project https://github.com/pyhipster/generator-pyhipster
+
+Server application generated successfully.
+
+
+Client application generated successfully.
+
+Entity Producto generated successfully.
+Entity ProductoCategoria generated successfully.
+Entity Cliente generated successfully.
+Entity Carrito generated successfully.
+Entity ProductoOrden generated successfully.
+INFO! Generator app succeed
+Congratulations, PyHipster execution is complete!
+Show us some ❤️  by sponsoring us.
 ```
 
 
-3. Run app
+4. Skip process when step install "typing-extensions" or pandas and update pyproject.toml file.
+
+```
+app/pyproject.toml
+pandas = "*"
+typing-extensions = "*"
+```
+
+Re run pyhipster jdl command and skip pyproject.toml file
+
+```
+ conflict pyproject.toml
+? Overwrite pyproject.toml? do not overwrite
+     skip pyproject.toml
+```
+
+6. Run npm install command
+
+```
+npm install
+```
+
+6. Run app
 
 ```
 npm run pyhipster
