@@ -5,7 +5,7 @@ metadata:
 components:
   - name: tools
     container:  
-      image: 'quay.io/maximilianopizarro/pyhipster-devspace'
+      image: 'quay.io/maximilianopizarro/py-devspace'
       mountSources: true
       cpuLimit: '4'
       cpuRequest: '1'
