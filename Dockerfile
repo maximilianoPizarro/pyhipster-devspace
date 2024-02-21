@@ -1,16 +1,16 @@
 FROM python:3.10
 LABEL maintainer="maximiliano.pizarro.5@gmail.com"
-USER root
+
 RUN apt update && apt -y install nodejs && apt -y install npm
 
-RUN mkdir /opt/app-root/src
-ADD app/. /opt/app-root/src
-ADD pyhipster.sh /opt/app-root/src
-WORKDIR /opt/app-root/src
+RUN mkdir /home/app
+ADD app/. /home/app
+ADD pyhipster.sh /home/app
+WORKDIR /home/app
 
-RUN chmod 777 /opt/app-root/src/pyhipster.sh
+RUN chmod 777 /home/app/pyhipster.sh
 
-ENV PATH=${PATH}:/opt/app-root/src
+ENV PATH=${PATH}:/home/app
 
 RUN pip install poetry
 RUN npm install
@@ -18,5 +18,4 @@ RUN poetry install
 
 EXPOSE 9000 5000 9060 8080
 
-ENTRYPOINT [ "/opt/app-root/src/pyhipster.sh" ]
-USER 1001
+ENTRYPOINT [ "/home/app/pyhipster.sh" ]
