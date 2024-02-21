@@ -38,6 +38,7 @@
 
 ## Re-generate JHipster application from JDL File on Red Hat OpenShift Dev Spaces
 
+
 1. Open terminal on Red Hat OpenShift Dev Spaces and run.
 
 jhipster-devspace (master) $ rm -r app && mkdir app
@@ -50,6 +51,20 @@ rm -r app && mkdir app
 
 ```
 cp template-jdl/pyhipster-devspace-model.jdl app
+```
+
+
+3. Python 3.10 Environment. 
+
+```
+/home/user/.pyenv/versions/3.10.13/bin/python3 -m venv .venv
+VENV_PATH=/projects/pyhipster-devspace/app/.venv
+```
+
+```
+$VENV_PATH/bin/pip install -U pip setuptools
+$VENV_PATH/bin/pip install poetry
+$VENV_PATH/bin/python3 -m poetry install
 ```
 
 3. Run 'pyhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started JDL Studio.
@@ -161,3 +176,4 @@ npm run pyhipster
 docker build -t delivery .
 docker compose -f app/src/main/docker/app.yml up
 ```
+
