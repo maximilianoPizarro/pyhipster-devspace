@@ -13,9 +13,7 @@ components:
       memoryRequest: '4G'
       volumeMounts:
         - name: venv
-          path: /home/user/.venv
-        - name: pyenv
-          path: /home/user/.pyenv                 
+          path: /home/user/.venv               
         - name: npm
           path: /home/user/.npm
       endpoints:
@@ -25,10 +23,7 @@ components:
           targetPort: 9000                    
   - name: venv
     volume:
-      size: 1G
-  - name: pyenv
-    volume:
-      size: 1G      
+      size: 1G  
   - name: npm
     volume:
       size: 512Mi       
