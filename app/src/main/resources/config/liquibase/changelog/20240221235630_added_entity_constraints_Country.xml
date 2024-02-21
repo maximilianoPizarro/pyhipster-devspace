@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity Country.
     -->
-    <changeSet id="20240221222048-2" author="jhipster">
+    <changeSet id="20240221235630-2" author="jhipster">
 
         <addForeignKeyConstraint baseColumnNames="region_id"
                                  baseTableName="country"

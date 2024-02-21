@@ -1,6 +1,6 @@
 {
   "applications": ["delivery"],
-  "changelogDate": "20240221222448",
+  "changelogDate": "20240222000030",
   "dto": "no",
   "embedded": false,
   "entityTableName": "employee",

@@ -6,7 +6,7 @@ application {
     authenticationType jwt
     prodDatabaseType postgresql
     databaseType sql
-    devDatabaseType postgresql
+    devDatabaseType h2Disk
     buildTool maven
     clientFramework vue
     clientTheme solar

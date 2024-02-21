@@ -6,7 +6,7 @@ ENV PYENV_ROOT=/home/user/.pyenv
 
 ENV VENV_PATH=/projects/pyhipster-devspace/app/.venv
 
-RUN dnf -y install openssl-devel bzip2-devel libffi-devel
+RUN dnf -y install openssl-devel bzip2-devel libffi-devel sqlite-devel
 
 ENV PATH=$PATH:$PYENV_ROOT/bin:$VENV_PATH/bin
 
