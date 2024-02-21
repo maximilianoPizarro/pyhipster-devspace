@@ -3683,8 +3683,8 @@
         "allFormat": "glob",
         "allValue": null,
         "current": {
-          "text": "delivery.maximilianopizarro5-dev.svc.cluster.local:8080",
-          "value": "delivery.maximilianopizarro5-dev.svc.cluster.local:8080"
+          "text": "localhost:8080",
+          "value": "localhost:8080"
         },
         "datasource": "Prometheus",
         "definition": "",

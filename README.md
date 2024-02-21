@@ -54,19 +54,7 @@ cp template-jdl/pyhipster-devspace-model.jdl app
 ```
 
 
-3. Set Virtual Environment using Python 3.10. 
-
-```
-/home/user/.pyenv/versions/3.10.13/bin/python3 -m venv .venv
-VENV_PATH=/projects/pyhipster-devspace/app/.venv
-```
-
-```
-$VENV_PATH/bin/pip install -U pip setuptools
-$VENV_PATH/bin/pip install poetry
-```
-
-4. Run 'pyhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started JDL Studio.
+3. Run 'pyhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started JDL Studio.
 
 jhipster-devspace (master) $cd app && jhipster jdl jhipster-devspace-model.jdl
 
@@ -140,7 +128,20 @@ INFO! Generator app succeed
 Congratulations, PyHipster execution is complete!
 Show us some ❤️  by sponsoring us.
 ```
+Skip install with CTRL+C
 
+4. Set Virtual Environment using Python 3.10. 
+
+```
+rm -rf /projects/pyhipster-devspace/app/.venv
+/home/user/.pyenv/versions/3.10.13/bin/python3 -m venv .venv
+VENV_PATH=/projects/pyhipster-devspace/app/.venv
+```
+
+```
+$VENV_PATH/bin/pip install -U pip setuptools
+$VENV_PATH/bin/pip install poetry
+```
 
 4. If command fail run npm & poetry install command from OpenShift Dev Spaces terminal
 

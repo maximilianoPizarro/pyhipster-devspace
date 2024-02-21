@@ -1,20 +1,26 @@
 import { Component, Provide, Vue } from 'vue-property-decorator';
 
 import UserService from '@/entities/user/user.service';
-import ProductoService from './producto/producto.service';
-import ProductoCategoriaService from './producto-categoria/producto-categoria.service';
-import ClienteService from './cliente/cliente.service';
-import CarritoService from './carrito/carrito.service';
-import ProductoOrdenService from './producto-orden/producto-orden.service';
+import RegionService from './region/region.service';
+import CountryService from './country/country.service';
+import LocationService from './location/location.service';
+import DepartmentService from './department/department.service';
+import TaskService from './task/task.service';
+import EmployeeService from './employee/employee.service';
+import JobService from './job/job.service';
+import JobHistoryService from './job-history/job-history.service';
 // jhipster-needle-add-entity-service-to-entities-component-import - JHipster will import entities services here
 
 @Component
 export default class Entities extends Vue {
   @Provide('userService') private userService = () => new UserService();
-  @Provide('productoService') private productoService = () => new ProductoService();
-  @Provide('productoCategoriaService') private productoCategoriaService = () => new ProductoCategoriaService();
-  @Provide('clienteService') private clienteService = () => new ClienteService();
-  @Provide('carritoService') private carritoService = () => new CarritoService();
-  @Provide('productoOrdenService') private productoOrdenService = () => new ProductoOrdenService();
+  @Provide('regionService') private regionService = () => new RegionService();
+  @Provide('countryService') private countryService = () => new CountryService();
+  @Provide('locationService') private locationService = () => new LocationService();
+  @Provide('departmentService') private departmentService = () => new DepartmentService();
+  @Provide('taskService') private taskService = () => new TaskService();
+  @Provide('employeeService') private employeeService = () => new EmployeeService();
+  @Provide('jobService') private jobService = () => new JobService();
+  @Provide('jobHistoryService') private jobHistoryService = () => new JobHistoryService();
   // jhipster-needle-add-entity-service-to-entities-component - JHipster will import entities services here
 }

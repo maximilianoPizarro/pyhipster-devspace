@@ -159,6 +159,4 @@ Desktop.ini
 /.nyc_output/
 
 .venv/
-/src/main/python/
-poetry.lock
-package-lock.json
+

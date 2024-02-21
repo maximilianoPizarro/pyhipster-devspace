@@ -6,11 +6,14 @@ from .AccountResource import account_register_ns, account_authenticate_ns, accou
 from .UserResource import user_list_ns
 from .LogoutResource import logout_ns
 from .AppManagment import app_management_ns
-from .ProductoResource import productos_list_ns
-from .ProductoCategoriaResource import producto_categorias_list_ns
-from .ClienteResource import clientes_list_ns
-from .CarritoResource import carritos_list_ns
-from .ProductoOrdenResource import producto_ordens_list_ns
+from .RegionResource import regions_list_ns
+from .CountryResource import countries_list_ns
+from .LocationResource import locations_list_ns
+from .DepartmentResource import departments_list_ns
+from .TaskResource import tasks_list_ns
+from .EmployeeResource import employees_list_ns
+from .JobResource import jobs_list_ns
+from .JobHistoryResource import job_histories_list_ns
 # pyhipster-needle-rest-api-list-add-entry-import
 
 def add_api_namespace(api):
@@ -28,11 +31,14 @@ def add_api_namespace(api):
     api.add_namespace(change_passwd_ns)
     api.add_namespace(user_list_ns)
     api.add_namespace(app_management_ns)
-    api.add_namespace(productos_list_ns)
-    api.add_namespace(producto_categorias_list_ns)
-    api.add_namespace(clientes_list_ns)
-    api.add_namespace(carritos_list_ns)
-    api.add_namespace(producto_ordens_list_ns)
+    api.add_namespace(regions_list_ns)
+    api.add_namespace(countries_list_ns)
+    api.add_namespace(locations_list_ns)
+    api.add_namespace(departments_list_ns)
+    api.add_namespace(tasks_list_ns)
+    api.add_namespace(employees_list_ns)
+    api.add_namespace(jobs_list_ns)
+    api.add_namespace(job_histories_list_ns)
     # pyhipster-needle-rest-api-list-add-namespaces
 
     # Adding resources to added namespaces
@@ -55,21 +61,30 @@ def add_api_namespace(api):
     app_management_ns.add_resource(AppManagment.AppManagementOpenAPIResource, "/jhiopenapigroups")
     # pyhipster-needle-rest-api-list-add-resource
     # pyhipster-needle-rest-api-list-add-resource-list
-    productos_list_ns.add_resource(ProductoResource.ProductoResourceList, "")
-    productos_list_ns.add_resource(ProductoResource.ProductoResourceListCount, "/count")
-    productos_list_ns.add_resource(ProductoResource.ProductoResource, "/<int:id>")
-    producto_categorias_list_ns.add_resource(ProductoCategoriaResource.ProductoCategoriaResourceList, "")
-    producto_categorias_list_ns.add_resource(ProductoCategoriaResource.ProductoCategoriaResourceListCount, "/count")
-    producto_categorias_list_ns.add_resource(ProductoCategoriaResource.ProductoCategoriaResource, "/<int:id>")
-    clientes_list_ns.add_resource(ClienteResource.ClienteResourceList, "")
-    clientes_list_ns.add_resource(ClienteResource.ClienteResourceListCount, "/count")
-    clientes_list_ns.add_resource(ClienteResource.ClienteResource, "/<int:id>")
-    carritos_list_ns.add_resource(CarritoResource.CarritoResourceList, "")
-    carritos_list_ns.add_resource(CarritoResource.CarritoResourceListCount, "/count")
-    carritos_list_ns.add_resource(CarritoResource.CarritoResource, "/<int:id>")
-    producto_ordens_list_ns.add_resource(ProductoOrdenResource.ProductoOrdenResourceList, "")
-    producto_ordens_list_ns.add_resource(ProductoOrdenResource.ProductoOrdenResourceListCount, "/count")
-    producto_ordens_list_ns.add_resource(ProductoOrdenResource.ProductoOrdenResource, "/<int:id>")
+    regions_list_ns.add_resource(RegionResource.RegionResourceList, "")
+    regions_list_ns.add_resource(RegionResource.RegionResourceListCount, "/count")
+    regions_list_ns.add_resource(RegionResource.RegionResource, "/<int:id>")
+    countries_list_ns.add_resource(CountryResource.CountryResourceList, "")
+    countries_list_ns.add_resource(CountryResource.CountryResourceListCount, "/count")
+    countries_list_ns.add_resource(CountryResource.CountryResource, "/<int:id>")
+    locations_list_ns.add_resource(LocationResource.LocationResourceList, "")
+    locations_list_ns.add_resource(LocationResource.LocationResourceListCount, "/count")
+    locations_list_ns.add_resource(LocationResource.LocationResource, "/<int:id>")
+    departments_list_ns.add_resource(DepartmentResource.DepartmentResourceList, "")
+    departments_list_ns.add_resource(DepartmentResource.DepartmentResourceListCount, "/count")
+    departments_list_ns.add_resource(DepartmentResource.DepartmentResource, "/<int:id>")
+    tasks_list_ns.add_resource(TaskResource.TaskResourceList, "")
+    tasks_list_ns.add_resource(TaskResource.TaskResourceListCount, "/count")
+    tasks_list_ns.add_resource(TaskResource.TaskResource, "/<int:id>")
+    employees_list_ns.add_resource(EmployeeResource.EmployeeResourceList, "")
+    employees_list_ns.add_resource(EmployeeResource.EmployeeResourceListCount, "/count")
+    employees_list_ns.add_resource(EmployeeResource.EmployeeResource, "/<int:id>")
+    jobs_list_ns.add_resource(JobResource.JobResourceList, "")
+    jobs_list_ns.add_resource(JobResource.JobResourceListCount, "/count")
+    jobs_list_ns.add_resource(JobResource.JobResource, "/<int:id>")
+    job_histories_list_ns.add_resource(JobHistoryResource.JobHistoryResourceList, "")
+    job_histories_list_ns.add_resource(JobHistoryResource.JobHistoryResourceListCount, "/count")
+    job_histories_list_ns.add_resource(JobHistoryResource.JobHistoryResource, "/<int:id>")
     # pyhipster-needle-rest-api-list-add-resource-list-count
 
     return api
