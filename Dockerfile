@@ -1,16 +1,14 @@
-FROM python:3.10
+FROM registry.access.redhat.com/ubi8/python-39:1-168
 LABEL maintainer="maximiliano.pizarro.5@gmail.com"
 
-RUN apt update && apt -y install nodejs && apt -y install npm
+USER root
 
-RUN mkdir /home/app
-ADD app/. /home/app
-ADD pyhipster.sh /home/app
-WORKDIR /home/app
+WORKDIR /opt/app-root/src
 
-RUN chmod 777 /home/app/pyhipster.sh
+ADD app/. /opt/app-root/src
+ADD pyhipster.sh /opt/app-root/src
 
-ENV PATH=${PATH}:/home/app
+RUN chmod 777 /opt/app-root/src/pyhipster.sh
 
 RUN pip install poetry
 RUN npm install
@@ -18,4 +16,6 @@ RUN poetry install
 
 EXPOSE 9000 5000 9060 8080
 
-ENTRYPOINT [ "/home/app/pyhipster.sh" ]
+ENTRYPOINT [ "/opt/app-root/src/pyhipster.sh" ]
+
+USER 1001
