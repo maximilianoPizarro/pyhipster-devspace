@@ -6,7 +6,7 @@ application {
     authenticationType jwt
     prodDatabaseType postgresql
     databaseType sql
-    devDatabaseType h2Disk
+    devDatabaseType postgresql
     buildTool maven
     clientFramework vue
     clientTheme solar
@@ -17,6 +17,7 @@ application {
   }
   entities *
 }
+
 
 
 entity Region {
