@@ -54,7 +54,7 @@ cp template-jdl/pyhipster-devspace-model.jdl app
 ```
 
 
-3. Python 3.10 Environment. 
+3. Set Virtual Environment using Python 3.10. 
 
 ```
 /home/user/.pyenv/versions/3.10.13/bin/python3 -m venv .venv
@@ -64,10 +64,9 @@ VENV_PATH=/projects/pyhipster-devspace/app/.venv
 ```
 $VENV_PATH/bin/pip install -U pip setuptools
 $VENV_PATH/bin/pip install poetry
-$VENV_PATH/bin/python3 -m poetry install
 ```
 
-3. Run 'pyhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started JDL Studio.
+4. Run 'pyhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started JDL Studio.
 
 jhipster-devspace (master) $cd app && jhipster jdl jhipster-devspace-model.jdl
 
@@ -143,25 +142,10 @@ Show us some ❤️  by sponsoring us.
 ```
 
 
-4. Skip process when step install "typing-extensions" or pandas and update pyproject.toml file.
+4. If command fail run npm & poetry install command from OpenShift Dev Spaces terminal
 
 ```
-app/pyproject.toml
-pandas = "*"
-typing-extensions = "*"
-```
-
-Re run pyhipster jdl command and skip pyproject.toml file
-
-```
- conflict pyproject.toml
-? Overwrite pyproject.toml? do not overwrite
-     skip pyproject.toml
-```
-
-6. Run npm install command
-
-```
+$VENV_PATH/bin/python3 -m poetry install
 npm install
 ```
 
@@ -170,10 +154,3 @@ npm install
 ```
 npm run pyhipster
 ```
-
-
-```
-docker build -t delivery .
-docker compose -f app/src/main/docker/app.yml up
-```
-
