@@ -14,7 +14,6 @@ spec:
     requests:
       storage: 2Gi
 ---
-      
 apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
@@ -36,6 +35,9 @@ spec:
       type: string
     - default: .
       name: PATH_CONTEXT
+      type: string
+    - default: 'true'
+      name: IS_SETUP
       type: string
   tasks:
     - name: fetch-repository
@@ -90,6 +92,11 @@ spec:
       taskRef:
         kind: ClusterTask
         name: openshift-client
+      when:
+        - input: $(params.IS_SETUP)
+          operator: in
+          values:
+            - 'true'
       workspaces:
         - name: manifest-dir
           workspace: workspace
