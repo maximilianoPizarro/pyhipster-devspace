@@ -89,7 +89,84 @@ npm run pyhipster
   <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-terminal-run.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
-Example Output terminal Red Hat OpenShift Dev Spaces
+
+
+## Deploy PyHipster v0.0.9 Monolithic application on ⭕ Red Hat OpenShift Pipelines ⭕
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pipeline.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+From terminal on Red Hat Openshift Dev Spaces an Red Hat OpenShift
+
+By default, the repo contains a version generated for testing this section with the name "Delivery", if you want to change it in your fork you will need to change it to the new value in the yaml objects and the jhispter JDL file.
+
+1. Fork this repo and modify the yaml files with your environment keys, <NAMESPACE> value.
+
+```bash
+  k8s/overlay/develop/route.yaml <---
+  spec:
+    host: delivery-<NAMESPACE>.apps.sandbox-m2.ll9k.p1.openshiftapps.com
+```
+```
+  k8s/overlay/develop/deployment-patches.yaml <---
+    spec:
+      containers:
+      - name: delivery
+        image: image-registry.openshift-image-registry.svc:5000/<NAMESPACE>/delivery        
+```
+```
+  k8s/base/configmap.yaml <---
+        SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://delivery:delivery@postgresql.<NAMESPACE>.svc.cluster.local:5432/delivery'
+```
+
+
+2. Create a Tekton Pipeline and PVC with oc apply command.
+
+```bash
+pyhipster-devspace (master) $ oc apply -f pipeline.yaml
+```
+
+```bash
+Output
+persistentvolumeclaim/workspace created
+pipeline.tekton.dev/pyhipster-devspace created
+```
+
+3. Run a Pipeline pyhipster-devspace from Red Hat OpenShift Pipelines.
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pipeline-form.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pipeline-run.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+4. View Topology and logs java POD.
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-topology.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-logs.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+5. Check in your browser the app run in production mode.
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-logs.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pod-test.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pod-configuration.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+
+
+## Example Output terminal Red Hat OpenShift Dev Spaces
 
 Output build:
 ```
@@ -261,62 +338,3 @@ app (main) $ npm run pyhipster
 [start]  UI External: http://localhost:3001
 [start]  --------------------------------------
 ```
-
-
-## Deploy PyHipster v0.0.9 Monolithic application on ⭕ Red Hat OpenShift Pipelines ⭕
-<p align="left">
-  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pipeline.PNG?raw=true" width="684" title="Run On Openshift">
-</p>
-
-From terminal on Red Hat Openshift Dev Spaces an Red Hat OpenShift
-
-By default, the repo contains a version generated for testing this section with the name "Delivery", if you want to change it in your fork you will need to change it to the new value in the yaml objects and the jhispter JDL file.
-
-1. Fork this repo and modify the yaml files with your environment keys.
-
-```bash
-  k8s/overlay/develop/route.yaml <---
-  spec:
-    host: delivery-<NAMESPACE>.apps.sandbox-m2.ll9k.p1.openshiftapps.com
-```
-```
-  k8s/overlay/develop/deployment-patches.yaml <---
-    spec:
-      containers:
-      - name: delivery
-        image: image-registry.openshift-image-registry.svc:5000/<NAMESPACE>/delivery        
-```
-
-2. Create a Tekton Pipeline and PVC with oc apply command.
-
-```bash
-pyhipster-devspace (master) $ oc apply -f pipeline.yaml
-```
-
-```bash
-Output
-persistentvolumeclaim/workspace created
-pipeline.tekton.dev/pyhipster-devspace created
-```
-
-3. Run a Pipeline pyhipster-devspace from Red Hat OpenShift Pipelines.
-
-<p align="left">
-  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pipeline-form.PNG?raw=true" width="684" title="Run On Openshift">
-</p>
-
-<p align="left">
-  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pipeline-run.PNG?raw=true" width="684" title="Run On Openshift">
-</p>
-
-4. View Topology and logs java POD.
-
-<p align="left">
-  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-topology.PNG?raw=true" width="684" title="Run On Openshift">
-</p>
-
-<p align="left">
-  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-logs.PNG?raw=true" width="684" title="Run On Openshift">
-</p>
-
-5. Check in your browser the app run in production mode, status and metric views.
