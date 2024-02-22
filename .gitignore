@@ -1,0 +1,8 @@
+/app/.venv/
+/app/node_modules/
+/app/src/main/python/__pycache__/
+/app/src/main/python/config/__pycache__/
+/app/src/main/python/domain/__pycache__/
+/app/src/main/python/rest/__pycache__/
+/app/src/main/python/schema/__pycache__/
+/app/src/main/python/security/__pycache__/

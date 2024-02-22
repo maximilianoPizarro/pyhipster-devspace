@@ -9,7 +9,7 @@ application {
     devDatabaseType h2Disk
     buildTool maven
     clientFramework vue
-    clientTheme solar
+    clientTheme slate
     clientThemeVariant dark
     enableTranslation true
     nativeLanguage es
