@@ -264,9 +264,8 @@ app (main) $ npm run pyhipster
 
 
 ## Deploy PyHipster v0.0.9 Monolithic application on ⭕ Red Hat OpenShift Pipelines ⭕
-
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline-running.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pipeline.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 From terminal on Red Hat Openshift Dev Spaces an Red Hat OpenShift
@@ -307,7 +306,7 @@ pipeline.tekton.dev/pyhipster-devspace created
 </p>
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pipeline.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pipeline-run.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 4. View Topology and logs java POD.
