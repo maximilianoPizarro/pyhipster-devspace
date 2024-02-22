@@ -307,17 +307,17 @@ pipeline.tekton.dev/pyhipster-devspace created
 </p>
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/master/screenshot/pyhipster-pipeline.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pipeline.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 4. View Topology and logs java POD.
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/delivery-topology.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-topology.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-production-logs.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-logs.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 5. Check in your browser the app run in production mode, status and metric views.
