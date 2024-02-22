@@ -1,0 +1,9 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: postgresql
+data:
+  database-name: ZGVsaXZlcnk=
+  database-password: ZGVsaXZlcnk=
+  database-user: ZGVsaXZlcnk=
+type: Opaque

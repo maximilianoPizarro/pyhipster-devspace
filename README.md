@@ -261,3 +261,66 @@ app (main) $ npm run pyhipster
 [start]  UI External: http://localhost:3001
 [start]  --------------------------------------
 ```
+
+## Deploy JHipster v8.1.0 Monolithic application on ⭕ Red Hat OpenShift Pipelines ⭕
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline-running.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+From terminal on Red Hat Openshift Dev Spaces an Red Hat OpenShift
+
+By default, the repo contains a version generated for testing this section with the name "Delivery", if you want to change it in your fork you will need to change it to the new value in the yaml objects and the jhispter JDL file.
+
+1. Fork this repo and modify the yaml files with your environment keys.
+
+```bash
+  k8s/overlay/develop/route.yaml <---
+  spec:
+    host: delivery-<NAMESPACE>.apps.sandbox-m2.ll9k.p1.openshiftapps.com
+```
+```
+  k8s/overlay/develop/deployment-patches.yaml <---
+    spec:
+      containers:
+      - name: delivery
+        image: image-registry.openshift-image-registry.svc:5000/<NAMESPACE>/delivery 
+        env:
+          - name: SPRING_DATASOURCE_URL
+            value: jdbc:mariadb://mariadb.<NAMESPACE>.svc.cluster.local:3306/delivery                  
+```
+
+2. Create a Tekton Pipeline, Tekton Task and PVC with oc apply command.
+
+```bash
+jhipster-devspace (master) $ oc apply -f pipeline.yaml
+```
+
+```bash
+Output
+persistentvolumeclaim/workspace created
+task.tekton.dev/npm created
+pipeline.tekton.dev/jhipster-devspace created
+```
+
+3. Run a Pipeline jhipster-devspace from Red Hat OpenShift Pipelines.
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline-form.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+4. View Topology and logs java POD.
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/delivery-topology.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-production-logs.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+5. Check in your browser the app run in production mode, status and metric views.

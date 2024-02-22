@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: delivery
+  annotations:
+    image.openshift.io/triggers: |-
+      [
+        {
+          "from": {
+            "kind": "ImageStreamTag",
+            "name": "delivery:latest"
+          },
+          "fieldPath": "spec.template.spec.containers[0].image"
+        }
+      ]
+spec:
+  template:
+    spec:
+      volumes:
+        - name: delivery
+          persistentVolumeClaim:
+            claimName: delivery       
+      containers:
+      - name: delivery
+        image: image-registry.openshift-image-registry.svc:5000/maximilianopizarro5-dev/delivery
+        env:
+          - name: FLASK_ENV
+            value: production
+        volumeMounts:
+          - name: delivery
+            mountPath: /home/app/target            
+            

@@ -1,0 +1,97 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: workspace
+  labels:
+    app.kubernetes.io/instance: delivery
+    app.kubernetes.io/name: delivery
+    app.kubernetes.io/part-of: delivery      
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 2Gi
+---
+      
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: pyhipster-devspace
+spec:
+  params:
+    - default: delivery
+      name: APP_NAME
+      type: string
+    - default: 'https://github.com/maximilianoPizarro/pyhipster-devspace'
+      name: GIT_REPO
+      type: string
+    - default: main
+      name: GIT_REVISION
+      type: string
+    - default: >-
+        image-registry.openshift-image-registry.svc:5000/maximilianopizarro5-dev/delivery
+      name: IMAGE_NAME
+      type: string
+    - default: .
+      name: PATH_CONTEXT
+      type: string
+  tasks:
+    - name: fetch-repository
+      params:
+        - name: url
+          value: $(params.GIT_REPO)
+        - name: revision
+          value: $(params.GIT_REVISION)
+        - name: subdirectory
+          value: ''
+        - name: deleteExisting
+          value: 'true'
+      taskRef:
+        kind: ClusterTask
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: workspace
+    - name: build
+      params:
+        - name: IMAGE
+          value: $(params.IMAGE_NAME)
+        - name: TLSVERIFY
+          value: 'false'
+        - name: CONTEXT
+          value: $(params.PATH_CONTEXT)
+      runAfter:
+        - oc-apply-manifest
+      taskRef:
+        kind: ClusterTask
+        name: buildah
+      workspaces:
+        - name: source
+          workspace: workspace
+    - name: deploy
+      params:
+        - name: SCRIPT
+          value: oc rollout status deployment/$(params.APP_NAME)
+      runAfter:
+        - build
+      taskRef:
+        kind: ClusterTask
+        name: openshift-client
+    - name: oc-apply-manifest
+      params:
+        - name: SCRIPT
+          value: oc apply -k $(workspaces.manifest-dir.path)/k8s/overlay/develop
+        - name: VERSION
+          value: latest
+      runAfter:
+        - fetch-repository
+      taskRef:
+        kind: ClusterTask
+        name: openshift-client
+      workspaces:
+        - name: manifest-dir
+          workspace: workspace
+  workspaces:
+    - name: workspace
