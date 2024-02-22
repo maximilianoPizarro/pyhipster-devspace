@@ -14,11 +14,15 @@ WORKDIR /home/user
 
 RUN curl https://pyenv.run | bash
 
-RUN pyenv install 3.10
+RUN pyenv install 3.10 \
+    && pyenv global 3.10
+
+RUN eval "$(pyenv init -)"
+
+RUN pip install -U pip setuptools \
+    && pip install poetry
 
 RUN chown 10001:0 ${PYENV_ROOT} && chgrp -R 0 ${PYENV_ROOT} && chmod -R g=u ${PYENV_ROOT}
-
-RUN pip install poetry
 
 RUN npm install -y -g npm@8.11.0
 

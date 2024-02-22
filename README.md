@@ -38,10 +38,12 @@
 
 ## Re-generate JHipster application from JDL File on Red Hat OpenShift Dev Spaces
 
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-terminal.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
 
 1. Open terminal on Red Hat OpenShift Dev Spaces and run.
-
-jhipster-devspace (master) $ rm -r app && mkdir app
 
 ```
 eval "$(pyenv init -)"
@@ -57,15 +59,40 @@ cp template-jdl/pyhipster-devspace-model.jdl app
 
 3. Run 'pyhipster jdl' command. info https://www.jhipster.tech/jdl/getting-started JDL Studio.
 
-jhipster-devspace (master) $cd app && jhipster jdl jhipster-devspace-model.jdl
-
 ```
 cd app
 pyhipster jdl pyhipster-devspace-model.jdl
 ```
 
+4. Modify line 51 in the app/webpack/webpack.common.js file. The key "proxy" http://localhost:8080 for http://127.0.0.1:8080.
+
 ```
-Output
+      devServer: {
+        static: {
+          directory: './target/classes/static/',
+        },
+        port: 9060,
+        proxy: [
+          {
+            context: ['/api', '/services', '/management', '/v3/api-docs', '/h2-console', '/auth'],
+            target: 'http://127.0.0.1:8080',
+```
+        
+
+5. Run pyhipster app. Confirm the link ports 8080 and 9000 from the VS Code message.
+
+```
+npm run pyhipster
+```
+
+<p align="left">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-terminal-run.PNG?raw=true" width="684" title="Run On Openshift">
+</p>
+
+Example Output terminal Red Hat OpenShift Dev Spaces
+
+Output build:
+```
 pyhipster-devspace (main) $ eval "$(pyenv init -)"
 pyhipster-devspace (main) $ rm -r app && mkdir app
 pyhipster-devspace (main) $ cp template-jdl/pyhipster-devspace-model.jdl app
@@ -167,8 +194,70 @@ Show us some ❤️  by sponsoring us.
 
 ```
 
-4. Run app
-
+Output runtime:
 ```
-npm run pyhipster
+app (main) $ npm run pyhipster
+
+> delivery@0.0.0 pyhipster
+> concurrently "npm:start" npm:pyhipster:backend:start
+
+[start] 
+[start] > delivery@0.0.0 start
+[start] > npm run webapp:dev --
+[start] 
+[pyhipster:backend:start] 
+[pyhipster:backend:start] > delivery@0.0.0 pyhipster:backend:start
+[pyhipster:backend:start] > poetry run task run_app
+[pyhipster:backend:start] 
+[start] 
+[start] > delivery@0.0.0 webapp:dev
+[start] > npm run webpack-dev-server -- --mode development --env stats=normal
+[start] 
+[start] 
+[start] > delivery@0.0.0 webpack-dev-server
+[start] > webpack serve --config webpack/webpack.common.js "--mode" "development" "--env" "stats=normal"
+[start] 
+[pyhipster:backend:start] /projects/pyhipster-devspace/app/.venv/lib/python3.10/site-packages/flask_sqlalchemy/__init__.py:851: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+[pyhipster:backend:start]   warnings.warn(
+[pyhipster:backend:start]  * Serving Flask app 'DeliveryApp' (lazy loading)
+[pyhipster:backend:start]  * Environment: development
+[pyhipster:backend:start]  * Debug mode: on
+[pyhipster:backend:start] 22-Feb-24 12:33:01 -  * Running on http://127.0.0.1:8080 (Press CTRL+C to quit)
+[pyhipster:backend:start] 22-Feb-24 12:33:01 -  * Restarting with stat
+[start] <i> [webpack-dev-server] [HPM] Proxy created: /api,/services,/management,/v3/api-docs,/h2-console,/auth  -> http://127.0.0.1:8080
+[start] <i> [webpack-dev-server] Project is running at:
+[start] <i> [webpack-dev-server] Loopback: http://localhost:9060/
+[start] <i> [webpack-dev-server] On Your Network (IPv4): http://10.131.10.155:9060/
+[start] <i> [webpack-dev-server] Content not from webpack is served from './target/classes/static/' directory
+[start] <i> [webpack-dev-server] 404s will fallback to '/index.html'
+[pyhipster:backend:start] /projects/pyhipster-devspace/app/.venv/lib/python3.10/site-packages/flask_sqlalchemy/__init__.py:851: UserWarning: Neither SQLALCHEMY_DATABASE_URI nor SQLALCHEMY_BINDS is set. Defaulting SQLALCHEMY_DATABASE_URI to "sqlite:///:memory:".
+[pyhipster:backend:start]   warnings.warn(
+[pyhipster:backend:start] 22-Feb-24 12:33:02 -  * Debugger is active!
+[pyhipster:backend:start] 22-Feb-24 12:33:02 -  * Debugger PIN: 936-708-888
+[start] assets by path *.js 5.01 MiB
+[start]   assets by chunk 62.9 KiB (id hint: vendors) 2 assets
+[start]   + 42 assets
+[start] assets by path content/ 452 KiB 26 assets
+[start] assets by path swagger-ui/ 3.25 MiB 16 assets
+[start] assets by path ./i18n/*.json 50 KiB
+[start]   asset ./i18n/es.json 17.4 KiB [emitted]
+[start]   + 2 assets
+[start] assets by info 20 KiB [immutable]
+[start]   asset c0285e5e9ebdce9056be.svg 11.9 KiB [emitted] [immutable] [from: src/main/webapp/content/images/jhipster_family_member_0.svg] (auxiliary name: app)
+[start]   asset e7c5d1f3c54c658850f0.png 8.09 KiB [emitted] [immutable] [from: src/main/webapp/content/images/logo-pyhipster.png] (auxiliary name: app)
+[start] asset favicon.ico 16.6 KiB [emitted] [from: src/main/webapp/favicon.ico] [copied]
+[start] asset index.html 5.75 KiB [emitted]
+[start] asset manifest.webapp 751 bytes [emitted] [from: src/main/webapp/manifest.webapp] [copied]
+[start] asset robots.txt 216 bytes [emitted] [from: src/main/webapp/robots.txt] [copied]
+[start] cached modules 4.71 MiB (javascript) 20 KiB (asset) 30.7 KiB (runtime) [cached] 804 modules
+[start] webpack 5.88.2 compiled successfully in 1687 ms
+[start] [Browsersync] Proxying: http://localhost:9060
+[start] [Browsersync] Access URLs:
+[start]  --------------------------------------
+[start]        Local: http://localhost:9000
+[start]     External: http://10.131.10.155:9000
+[start]  --------------------------------------
+[start]           UI: http://localhost:3001
+[start]  UI External: http://localhost:3001
+[start]  --------------------------------------
 ```
