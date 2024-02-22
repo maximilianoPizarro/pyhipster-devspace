@@ -2,7 +2,6 @@ application {
   config {
   	applicationType monolith
     baseName delivery
-    packageName com.delivery.app
     authenticationType jwt
     prodDatabaseType postgresql
     databaseType sql
@@ -10,15 +9,13 @@ application {
     buildTool maven
     clientFramework vue
     clientTheme slate
-    clientThemeVariant dark
+    clientThemeVariant light
     enableTranslation true
     nativeLanguage es
     languages [en, nl]
   }
   entities *
 }
-
-
 
 entity Region {
 	regionName String
