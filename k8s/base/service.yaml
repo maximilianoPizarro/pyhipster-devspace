@@ -26,18 +26,18 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: mariadb
-    app.kubernetes.io/component: mariadb
-    app.kubernetes.io/instance: mariadb
-    app.kubernetes.io/name: mariadb
+    app: postgresql
+    app.kubernetes.io/component: postgresql
+    app.kubernetes.io/instance: postgresql
+    app.kubernetes.io/name: postgresql
     app.kubernetes.io/part-of: delivery
-  name: mariadb
+  name: postgresql
 spec:
   ports:
-    - name: 3306-tcp
+    - name: 5432-tcp
       protocol: TCP
-      port: 3306
-      targetPort: 3306
+      port: 5432
+      targetPort: 5432
   selector:
-    app: mariadb
-    deployment: mariadb
+    app: postgresql
+    deployment: postgresql
