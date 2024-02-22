@@ -262,7 +262,8 @@ app (main) $ npm run pyhipster
 [start]  --------------------------------------
 ```
 
-## Deploy JHipster v8.1.0 Monolithic application on ⭕ Red Hat OpenShift Pipelines ⭕
+
+## Deploy PyHipster v0.0.9 Monolithic application on ⭕ Red Hat OpenShift Pipelines ⭕
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline-running.PNG?raw=true" width="684" title="Run On Openshift">
@@ -284,26 +285,22 @@ By default, the repo contains a version generated for testing this section with 
     spec:
       containers:
       - name: delivery
-        image: image-registry.openshift-image-registry.svc:5000/<NAMESPACE>/delivery 
-        env:
-          - name: SPRING_DATASOURCE_URL
-            value: jdbc:mariadb://mariadb.<NAMESPACE>.svc.cluster.local:3306/delivery                  
+        image: image-registry.openshift-image-registry.svc:5000/<NAMESPACE>/delivery        
 ```
 
 2. Create a Tekton Pipeline, Tekton Task and PVC with oc apply command.
 
 ```bash
-jhipster-devspace (master) $ oc apply -f pipeline.yaml
+pyhipster-devspace (master) $ oc apply -f pipeline.yaml
 ```
 
 ```bash
 Output
 persistentvolumeclaim/workspace created
-task.tekton.dev/npm created
-pipeline.tekton.dev/jhipster-devspace created
+pipeline.tekton.dev/pyhipster-devspace created
 ```
 
-3. Run a Pipeline jhipster-devspace from Red Hat OpenShift Pipelines.
+3. Run a Pipeline pyhipster-devspace from Red Hat OpenShift Pipelines.
 
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline-form.PNG?raw=true" width="684" title="Run On Openshift">
