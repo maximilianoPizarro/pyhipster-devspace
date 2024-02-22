@@ -155,7 +155,7 @@ pipeline.tekton.dev/pyhipster-devspace created
 5. Check in your browser the app run in production mode.
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-logs.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pod-entities.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 <p align="left">
   <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pod-test.PNG?raw=true" width="684" title="Run On Openshift">
