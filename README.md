@@ -303,11 +303,11 @@ pipeline.tekton.dev/pyhipster-devspace created
 3. Run a Pipeline pyhipster-devspace from Red Hat OpenShift Pipelines.
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline-form.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/main/screenshot/pyhipster-pipeline-form.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 <p align="left">
-  <img src="https://github.com/maximilianoPizarro/jhipster-devspace/blob/master/screenshot/jhipster-pipeline.PNG?raw=true" width="684" title="Run On Openshift">
+  <img src="https://github.com/maximilianoPizarro/pyhipster-devspace/blob/master/screenshot/pyhipster-pipeline.PNG?raw=true" width="684" title="Run On Openshift">
 </p>
 
 4. View Topology and logs java POD.

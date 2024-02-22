@@ -74,7 +74,9 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        name: postgresql
+        app: postgresql
+        app.openshift.io/runtime: postgresql
+        deployment: postgresql
     spec:
       volumes:
         - name: postgresql-data
