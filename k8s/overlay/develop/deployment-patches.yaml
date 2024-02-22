@@ -30,6 +30,8 @@ spec:
         env:
           - name: FLASK_ENV
             value: production
+          - name: NODE_ENV
+            value: production            
         volumeMounts:
           - name: delivery
             mountPath: /home/app/target
