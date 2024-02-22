@@ -19,7 +19,11 @@ spec:
       volumes:
         - name: delivery
           persistentVolumeClaim:
-            claimName: delivery       
+            claimName: delivery
+        - name: config-volume
+          configMap:
+            name: baseconfig
+            defaultMode: 420                    
       containers:
       - name: delivery
         image: image-registry.openshift-image-registry.svc:5000/maximilianopizarro5-dev/delivery
@@ -28,5 +32,8 @@ spec:
             value: production
         volumeMounts:
           - name: delivery
-            mountPath: /home/app/target            
+            mountPath: /home/app/target
+          - name: config-volume
+            mountPath: /home/app/src/main/python/config/BaseConfig.py
+            subPath: BaseConfig.py                            
             

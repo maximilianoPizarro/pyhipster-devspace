@@ -288,7 +288,7 @@ By default, the repo contains a version generated for testing this section with 
         image: image-registry.openshift-image-registry.svc:5000/<NAMESPACE>/delivery        
 ```
 
-2. Create a Tekton Pipeline, Tekton Task and PVC with oc apply command.
+2. Create a Tekton Pipeline and PVC with oc apply command.
 
 ```bash
 pyhipster-devspace (master) $ oc apply -f pipeline.yaml
